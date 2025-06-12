@@ -5,6 +5,7 @@
   src: url('Acme-Regular.ttf') format('truetype');
 }
 
+/*OurStory Body Styles*/
 p.Info{
   font-family: 'Acme', sans-serif;
   font-size: 20px;
@@ -13,61 +14,105 @@ p.Info{
   margin-left: 230px;
   margin-right: 220px;
 }
+img.ourstory{
+  width: 20%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+}
 
+/*  General HTML Stlyes*/
 html{
     background-color: #2c2c2c;
 }
-
-h1{
-    font-family: 'Instrument Serif';
-    color:#ffffff;
-    text-align: center;
-    font-size: 70px;
+/* Reset default margins/paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-hr.fancy-line-title {
-  width: 30%;
-  height: 2px;
-  background-color: #ffffff;
-  border: none;         /* Remove default border */
-  margin: 2px auto;    /* Top/bottom spacing + center horizontally */
-  margin-bottom: 20px;
-}
-
-hr.fancy-line {
-  width: 70%;
-  height: 2px;
-  background-color: #ffffff;
-  border: none;         /* Remove default border */
-  margin: 2px auto;    /* Top/bottom spacing + center horizontally */
-  margin-bottom: 20px;
-}
-
-hr.fancy-line-cake{
-  width: 70%;
-  height: 2px;
-  background-color: #ffffff;
-  border: none;         /* Remove default border */
-  margin: 2px auto;    /* Top/bottom spacing + center horizontally */
-  margin-top: 100px;
-  margin-bottom: 20px;
-}
-
-article.cake-article{
-  background: white;
-}
-
-article.cake-article > p.cake-name{
-  margin: 4px;
-  font-size: 90%;
-}
-
-div.map-container {
+div.lines {
   display: flex;
-  justify-content: center;
-  margin: 40px 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
+div.longline {
+  width: 30%;
+  height: 1px;
+  background-color: white;
+}    
+div.linetop{
+  width: 20%;
+  height: 1px;
+  background-color: white;
+  margin-top: 10px;
+}
+
+div.linebottom {
+  width: 20%;
+  height: 1px;
+  background-color: white;
+  margin-top: 10px;
+}
+div.longbottom {
+  width: 30%;
+  height: 1px;
+  background-color: white;
+  margin-top: 10px;
+}
+div.bottom-lines {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* Wrapper with top and bottom borders */
+nav.nav-wrapper {
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  text-align: center;
+  padding: 10px 0;
+  margin-left: 220px;
+  margin-right: 220px;
+  margin-bottom: 20px;
+}
+
+ul.nav-menu {
+  display: inline-flex;
+  list-style: none;
+  gap: 30px; /* space between items */
+}
+.nav-menu li a {
+  text-decoration: none;
+  color: white;
+  font-family: 'Instrument Serif';
+  font-size: 40px;
+  letter-spacing: 1px;
+  padding: 0 10px;
+  display: inline-block;
+  text-transform: uppercase;
+}
+/* Add vertical bar | after every link except the last */
+.nav-menu li:not(:last-child)::after {
+  content: "|";
+  color: #ccc;
+  margin-left: 20px;
+}
+
+div.title{
+  font-family: 'Instrument Serif';
+  color:#ffffff;
+  text-align: center;
+  font-size: 100px;
+  border: none;
+  margin: none;
+}
 
 p.Notice{
   font-family: Instrument Serif;
@@ -75,53 +120,12 @@ p.Notice{
     text-align: center;
     font-size: 20px;
 }
-
 p.head{
     font-family: Inter, sans-serif;
     color: #ffffff;
     text-align: center;
     font-size: 20px;
 }
-
-p.footer{
-    font-family: 'Instrument Serif';
-    color: #ffffff;
-    text-align: center;
-    font-size: 20px;
-    margin: 0;
-}
-
-p.copyright{
-    font-family: 'Instrument Serif';
-    color: #ffffff;
-    text-align: center;
-    font-size: 10px;
-}
-
-p.cake-name{
-  font-family: 'Acme', sans-serif;
-  font-size: 20px;
-  color: #4A95FF;
-    background-color: #2c2c2c;
-    text-align: center;
-}
-
-p.opening-hours{
-  font-family: 'Acme', sans-serif;
-  font-size: 20px;
-  color: #ffffff;
-    background-color: #2c2c2c;
-    text-align: center;
-}
-
-p.Contact{
-  font-family: 'Acme', sans-serif;
-  font-size: 20px;
-  color: #ffffff;
-    background-color: #2c2c2c;
-    text-align: center;
-}
-
 p.text{
     font-family: 'Instrument Serif';
     font-size: x-large;
@@ -132,18 +136,11 @@ p.text{
     margin-right: 150px;
 }
 
-footer {
-    font-family: 'Instrument Serif';
-    color: #ffffff;
-    padding: 10px 16px;
-}
-
 img.Title{
   width: 70%; 
   height: auto; 
   margin-left: 200px;
 }
-
 img.homepage{
     width: 70%;
     height: auto;
@@ -151,6 +148,30 @@ img.homepage{
     margin-left: auto;
     margin-right: auto;
     border-radius: 8px;
+}
+
+/* Footer Styles */
+p.footer{
+    font-family: 'Instrument Serif';
+    color: #ffffff;
+    text-align: center;
+    font-size: 20px;
+    margin: 0;
+}
+p.copyright{
+    font-family: 'Instrument Serif';
+    color: #ffffff;
+    text-align: center;
+    font-size: 10px;
+}
+
+nav.footer-wrapper {
+  border-top: 1px solid #ffffff;
+  text-align: center;
+  padding: 10px 0;
+  margin-left: 220px;
+  margin-right: 220px;
+  margin-top: 20px;
 }
 
 img.fb{
@@ -162,7 +183,6 @@ img.fb{
     order: calc(100 - 1);
     vertical-align: middle; 
 }
-
 img.gm{
     width: 3.3%; 
     height: auto;
@@ -171,6 +191,33 @@ img.gm{
     margin-bottom: 10px; 
     order: calc(100 - 1);
     vertical-align: middle; 
+}
+
+/* Cake Body Styles*/
+hr.fancy-line-cake{
+  width: 70%;
+  height: 2px;
+  background-color: #ffffff;
+  border: none;        
+  margin: 2px auto;   
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+article.cake-article{
+  background: white;
+}
+article.cake-article > p.cake-name{
+  margin: 4px;
+  font-size: 90%;
+}
+
+p.cake-name{
+  font-family: 'Acme', sans-serif;
+  font-size: 20px;
+  color: #4A95FF;
+    background-color: #2c2c2c;
+    text-align: center;
 }
 
 img.cake{
@@ -183,46 +230,33 @@ img.cake{
   float: left;
 }
 
+/*Contact Body Styles*/
+div.map-container {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+p.opening-hours{
+  font-family: 'Acme', sans-serif;
+  font-size: 20px;
+  color: #ffffff;
+    background-color: #2c2c2c;
+    text-align: center;
+}
+p.Contact{
+  font-family: 'Acme', sans-serif;
+  font-size: 20px;
+  color: #ffffff;
+    background-color: #2c2c2c;
+    text-align: center;
+}
+
+/*Chocolate Body Styles*/
 img.chocolate{
   float: left;
   border-radius: 8px;
   margin-right: 20px;
   width: 40%;
   height: auto;
-}
-
-img.ourstory{
-  width: 20%;
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 8px;
-}
-
-ul.main-menu {
-  list-style: none;
-  text-align: center;
-}
-
-ul.main-menu li {
-  display: inline;
-  font-size: 40px;
-  font-family: 'Instrument Serif';
-}
-
-ul.main-menu li a {
-  padding: 8px;
-  color: rgb(255, 255, 255);
-  content: "/\00a0";
-}
-
-ul.main-menu li+li:before{
-  color: #ffffff;
-  text-decoration: none;
-}
-
-ul.main-menu li a:hover {
-  color: #ffffff;
-  text-decoration: underline;
 }
