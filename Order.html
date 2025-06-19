@@ -3,41 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order</title>
+    <title>Homepage</title>
     <link rel="stylesheet" href="styles.css">
-
-    <div class="lines">
-      <div class="longline"></div>
-      <div class="linetop"></div>
-    </div>
-
-    <div class="title">Du Plessy Pralin & Otello</div>
- 
-    <div class="lines bottom-lines">
-      <div class="linebottom"></div>
-      <div class="longbottom"></div>
-    </div>
-
-<nav class="nav-wrapper">
-    <ul class="nav-menu">
-            <li><a href="Chocolate.html">CHOCOLATE</a></li>
-            <li><a href="Cake.html">CAKE</a></li>
-            <li><a href="OurStory.html">Our Story</a></li>
-            <li><a href="Contact.html">LOCATION</a></li>
-    </ul>
-</nav>
-
-        <p class="head">Finely handcrafted chocolates and cakes</p>
 </head>
 
-    <body>
+<body>
 
-    </body>
+ <div class="Home"><a href="index.html">Du Plessy Pralin & Otello</a></div>
+
+   <div class="nav-border top-line"></div>
+   
+   <div id="navbar">
+    <div class="navcontainer">
+    <ul class="nav-links">
+        <li><a href="Chocolate.html">CHOCOLATE</a></li>
+        <li><span>|</span></li>
+        <li><a href="Cake.html">CAKE</a></li>
+        <li><span>|</span></li>
+        <li><a href="OurStory.html">Our Story</a></li>
+        <li><span>|</span></li>
+        <li><a href="Contact.html">LOCATION</a></li>
+    </ul>
+</div>
+    </div>
+
+<div class="nav-border top-line"></div>
+
+    <p class="brand">Finely handcrafted chocolates and cakes</p>
+
+<main>  
+
+  <div class="order-form">
+    <h1>Place Your Order</h1>
+
+    <!-- Step 1: Product Selection -->
+    <div id="step-product">
+      <label for="product">Select a Product:</label>
+      <select id="product">
+        <option value="">--Choose--</option>
+        <option value="chocolate">Chocolate</option>
+        <option value="cake">Cake</option>
+      </select>
+      <button onclick="goToDateStep()">Dates ⭢</button>
+    </div>
+
+    <!-- Step 2: Date Selection -->
+    <div id="step-date" style="display: none;">
+      <label for="order-date">Select a Date:</label>
+      <input type="date" id="order-date" />
+
+      <div style="display: flex; justify-content: space-between; gap: 10px;">
+        <button onclick="goBackToProduct()">⬅ Back</button>
+        <button onclick="goToOptionsStep()">Next ⭢</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Options -->
+    <div id="step-options" style="display: none;">
+      <div id="chocolate-options" style="display: none;">
+        <label for="choc-weight">Select Chocolate Weight:</label>
+        <select id="choc-weight">
+          <option value="">--Choose--</option>
+          <option value="125">125 gm</option>
+          <option value="180">180 gm</option>
+          <option value="250">250 gm</option>
+          <option value="375">375 gm</option>
+          <option value="500">500 gm</option>
+          <option value="1000">1000 gm</option>
+        </select>
+      </div>
+
+      <div id="cake-options" style="display: none;">
+        <label for="cake-type">Select Cake:</label>
+        <select id="cake-type" onchange="populateCakeSizes()">
+          <option value="">--Choose--</option>
+          <option value="Japonaise">Japonaise (Gluten Free)</option>
+          <option value="Queen of Sheba">Queen of Sheba (Gluten Free)</option>
+          <option value="Blood Orange Mousse">Blood Orange Mousse</option>
+          <option value="Raspberry Mousse">Raspberry Mousse (Nut Free)</option>
+          <option value="Lemon Mousse">Lemon Mousse (Nut Free)</option>
+          <option value="Dacquoise">Dacquoise (Gluten Free)</option>
+          <option value="Opera" id="opera-option" style="display:none;">Opera</option>
+        </select>
+
+        <label for="cake-size">Select Size:</label>
+        <select id="cake-size">
+          <option value="">--Select Cake First--</option>
+        </select>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; gap: 10px; margin-top: 15px;">
+        <button onclick="goBackToDate()">⬅ Back</button>
+        <button onclick="goToInfoStep()">Next ⭢</button>
+
+      </div>
+    </div>
+
+    <!-- Step 4: Info -->
+<div id="step-info" style="display: none;">
+  <h3>Order Overview</h3>
+  <h4>Pick Up Location</h4>
+  <h4>Shop 17 Philip Mall, Kendall Street, West Pymble, NSW, 2073</h4>
+  <div id="order-summary"></div>
+
+  <label for="email">Email Address:</label>
+  <input type="email" id="email" placeholder="you@example.com" />
+
+  <label for="phone">Phone Number:</label>
+  <input type="tel" id="phone" placeholder="04xx xxx xxx" />
+
+  <div style="display: flex; justify-content: space-between; gap: 10px; margin-top: 15px;">
+    <button onclick="goBackToOptions()">⬅ Back</button>
+    <button onclick="goToPayment()">Next ⭢</button>
+  </div>
+</div>
+
+<!-- Step 5: Payment -->
+<div id="step-payment" style="display: none;">
+  <h3>Select Payment Option</h3>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+    <label class="payment-option">
+    <input type="radio" name="payment" value="Card" />
+    <span>
+      <strong>Card</strong> – Full Payment, no refund
+    </span>
+  </label>
+
+  <label class="payment-option">
+    <input type="radio" name="payment" value="Cash" />
+    <span>
+      <strong>Cash</strong> – 50% deposit required,<br />
+      the rest to be paid in store
+    </span>
+  </label>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; gap: 10px; margin-top: 15px;">
+    <button onclick="goBackToInfo()">⬅ Back</button>
+    <button onclick="completeOrder()">Submit</button>
+  </div>
+</div>
+
+
+<!-- Step 6: Confirmation -->
+<div id="step-confirm" style="display: none;">
+  <h3>Your order has completed</h3>
+  <p>Please check your email for your confirmation of your order.</p>
+  <p>Thank you ❤️</p>
+
+  <a href="index.html">
+    <button>EXIT</button>
+  </a>
+</div>
+
+  </div>
+  <script src="control.js"></script>
+</body>
 <footer>
-    <nav class="footer-wrapper">
-        <p class="footer"><a href="OurStory.html">About Us</a><img src="Facebook_f_logo_(2021).svg.png" alt="FaceBook Logo" class="fb"></p>
-        <p class="footer"><a href="Contact.html">Contact</a><img src="google-maps-icon-free-png.webp" alt="GoofleMap Logo" class="gm"></p>
-    </nav>
-        <p class="copyright">&copy;2025 Baoyi Tang</p>
+    <br>
+<div class="nav-border top-line"></div>
+<br>
+  <div class="bottom-navbar">
+    <a href="index.html">Home</a>
+    <a href="OurStory.html">About Us</a>
+    <a href="Contact.html">Contact</a>
+  </div>
+  <div class="footer-copy">
+    &copy; 2025 Du Plessy Pralin & Otello. All rights reserved.
+  </div>
 </footer>
 </html>
